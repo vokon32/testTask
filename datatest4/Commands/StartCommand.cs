@@ -18,8 +18,7 @@ namespace datatest4.Commands
         public override string Name => CommandNames.StartCommand;
 
         public override async Task ExecuteAsync(Update update)
-        {
-          
+        {         
             await _botClient.SendTextMessageAsync(update.Message.Chat.Id, "Введіть IMEI",
                 ParseMode.Markdown);
         }

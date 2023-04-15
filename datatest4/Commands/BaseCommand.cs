@@ -1,6 +1,4 @@
-﻿
-
-using Telegram.Bot.Types;
+﻿using Telegram.Bot.Types;
 
 namespace datatest4.Commands
 {

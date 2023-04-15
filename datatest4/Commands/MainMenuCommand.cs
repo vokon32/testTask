@@ -29,8 +29,6 @@ namespace datatest4.Commands
             var trackLocations = await _trackLocationRepository.GetAllTracks();
             var walks = _trackLocationRepository.GetAllWalks(trackLocations, user);
 
-
-
             double totalDistance = 0;
             double totalDuration = 0;
 
@@ -41,7 +39,6 @@ namespace datatest4.Commands
             }
 
             var message = $"Всього прогулянок: {walks.Count()}\nВсього км пройдено: {Math.Round(totalDistance)}\nВсього часу, хв: {Math.Round(totalDuration)}";
-
 
             var inlineKeyboard = new ReplyKeyboardMarkup(new[]
                {

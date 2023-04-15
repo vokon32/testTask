@@ -22,8 +22,6 @@ namespace datatest4.Commands
             _botClient = telegramBot.GetBot().Result;
         }
         public override string Name => CommandNames.TopTenCommand;
-
-
         public override async Task ExecuteAsync(Update update)
         {
             var user = await _userService.GetOrCreate(update);
