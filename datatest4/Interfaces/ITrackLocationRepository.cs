@@ -6,6 +6,7 @@ namespace datatest4.Interfaces
     {
         Task<IEnumerable<TrackLocation>> GetAllTracks();
         IEnumerable<Walk> GetAllWalks(IEnumerable<TrackLocation> trackLocations, AppUser user);
+        double GetPassedDistancePerDay(IEnumerable<Walk> walks, AppUser user, DateTime date);
 
     }
 }

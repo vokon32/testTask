@@ -2,8 +2,6 @@
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 using Telegram.Bot;
-using datatest4.Models;
-using datatest4.Repository;
 using System.Text;
 using Telegram.Bot.Types;
 using datatest4.Data;

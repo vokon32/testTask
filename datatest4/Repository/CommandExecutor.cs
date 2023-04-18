@@ -28,6 +28,12 @@ namespace datatest4.Repository
                 await ExecuteCommand(CommandNames.MainMenuCommand, update);
                 return;
             }
+            
+            if (update.Message != null && update.Message.Text.Contains(CommandNames.EnterDayCommand))
+            {
+                await ExecuteCommand(CommandNames.EnterDayCommand, update);
+                return;
+            }
 
             if (update.Message != null && update.Message.Text.Contains(CommandNames.TopTenCommand))
             {
@@ -37,9 +43,19 @@ namespace datatest4.Repository
 
             switch (_lastCommand?.Name)
             {
+                case CommandNames.GetWalkPerDateCommand:
+                    {
+                        await ExecuteCommand(CommandNames.GetWalkPerDateCommand, update);
+                        break;
+                    }
                 case CommandNames.StartCommand:
                     {
                         await ExecuteCommand(CommandNames.MainMenuCommand, update);
+                        break;
+                    }
+                case CommandNames.EnterDayCommand:
+                    {
+                        await ExecuteCommand(CommandNames.GetWalkPerDateCommand, update);
                         break;
                     }
             }

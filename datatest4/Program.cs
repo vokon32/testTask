@@ -22,7 +22,8 @@ builder.Services.AddSingleton<ICommandExecutor, CommandExecutor>();
 builder.Services.AddSingleton<BaseCommand, StartCommand>();
 builder.Services.AddSingleton<BaseCommand, MainMenuCommand>();
 builder.Services.AddSingleton<BaseCommand, TopTenCommand>();
-
+builder.Services.AddSingleton<BaseCommand, EnterDateCommand>();
+builder.Services.AddSingleton<BaseCommand, WalkPerDateCommand>();
 
 
 var app = builder.Build();

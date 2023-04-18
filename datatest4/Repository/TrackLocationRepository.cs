@@ -22,22 +22,22 @@ namespace datatest4.Repository
         {
             var previousTrack = trackLocations.FirstOrDefault();
             var walks = new List<Walk>();
-           
-            bool isFirst = true; 
-            
+
+            bool isFirst = true;
+
             foreach (var tracklocation in trackLocations)
             {
                 if (user.Imei == tracklocation.Imei && tracklocation.TypeSource == 1)
                 {
                     if (isFirst)
                     {
-                        Walk = new Walk() 
-                        { 
-                            FirstDateTrack = tracklocation.DateTrack, 
-                            FirstLatitude = tracklocation.Latitude, 
-                            FirstLongitude = tracklocation.Longitude 
+                        Walk = new Walk()
+                        {
+                            FirstDateTrack = tracklocation.DateTrack,
+                            FirstLatitude = tracklocation.Latitude,
+                            FirstLongitude = tracklocation.Longitude
                         };
-                        
+
                         isFirst = false;
                     }
 
@@ -49,11 +49,25 @@ namespace datatest4.Repository
                         walks.Add(Walk);
                         isFirst = true;
                     }
-                    
+
                     previousTrack = tracklocation;
                 }
             }
             return walks;
+        }
+
+        public double GetPassedDistancePerDay(IEnumerable<Walk> walks, AppUser user, DateTime date)
+        {
+            double kmPerDate = 0;
+
+            foreach (var walk in walks)
+            {
+                if (walk.LastDateTrack.ToShortDateString() == date.ToShortDateString())
+                {
+                    kmPerDate += walk.Distance;
+                }
+            }
+            return kmPerDate;
         }
     }
 }
